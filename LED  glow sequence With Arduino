@@ -1,13 +1,13 @@
 // C++ code
 //
 int animationspeed = 0;
-unsigned long startTime; 
+unsigned long startTime; //unsigned long is a data type which can store a large value and startTime is variable
 void setup()
 {
  pinMode(13,OUTPUT);
  pinMode(11,OUTPUT);
  pinMode(12,OUTPUT);
- startTime = millis();
+ startTime = millis(); //millis() count the duration time and that value is stored in startTime
   
 }
 
