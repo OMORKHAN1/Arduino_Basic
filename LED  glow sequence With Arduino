@@ -1,0 +1,33 @@
+// C++ code
+//
+int animationspeed = 0;
+unsigned long startTime; 
+void setup()
+{
+ pinMode(13,OUTPUT);
+ pinMode(11,OUTPUT);
+ pinMode(12,OUTPUT);
+ startTime = millis();
+  
+}
+
+void loop()
+{
+  if (millis() - startTime >=10000){
+  while(true);
+  
+  }
+ animationspeed = 400;
+ digitalWrite(13, HIGH);
+ delay(animationspeed);
+ digitalWrite(13, LOW);
+ delay(animationspeed);
+ digitalWrite(12, HIGH);
+ delay(animationspeed);
+ digitalWrite(12, LOW);
+ delay(animationspeed);
+ digitalWrite(11, HIGH);
+ delay(animationspeed);
+ digitalWrite(11, LOW);
+ delay(animationspeed);
+}
