@@ -1,0 +1,25 @@
+// C++ code
+//
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{ // for int input
+  
+	//int userInt;
+  	//userInt = Serial.parseInt();
+  	//delay(500);
+    //Serial.println(userInt);
+  
+  // for str input	
+  if (Serial.available()>0){
+  	String userStr;
+  	userStr = Serial.readString();
+  	delay(5);
+  	Serial.println(userStr);
+  }
+  
+  // Cha inpu 
+}
