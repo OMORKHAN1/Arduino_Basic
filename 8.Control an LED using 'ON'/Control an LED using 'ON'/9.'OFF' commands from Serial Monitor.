@@ -1,0 +1,35 @@
+// C++ code
+
+int Led_Pin = 12;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(Led_Pin,OUTPUT);
+  Serial.println("Enter 'ON' to turn on LED, 'OFF' to turn off LED");
+}
+
+void loop()
+{
+  if(Serial.available()>0){
+    String command = Serial.readString();
+    command.trim();
+    	
+    
+    if(command == "ON"){
+     digitalWrite(Led_Pin,HIGH);
+     Serial.println("LED is on");
+    
+    }
+    else if(command == "OFF"){
+     digitalWrite(Led_Pin,LOW);
+     Serial.println("LED is off");
+    
+    }
+    
+    else{
+     Serial.println("Invalid input. Enter on/off");
+    
+    }
+  
+  }
+}
