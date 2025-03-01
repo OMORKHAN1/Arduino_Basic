@@ -1,0 +1,22 @@
+// C++ code
+
+int buttonstate; 
+int buttonpin = 12;
+
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(buttonpin, INPUT);
+}
+
+void loop()
+{
+ 	buttonstate = digitalRead(buttonpin);
+  if(buttonstate ==1){
+  	
+    Serial.println("Button Pressed");
+  	delay(1000);
+  }
+  
+}
