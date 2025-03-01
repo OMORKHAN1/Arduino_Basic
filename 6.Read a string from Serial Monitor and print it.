@@ -1,0 +1,18 @@
+// C++ code
+//
+void setup()
+{
+  Serial.begin(9600);
+  Serial.println("Enter a text.");
+}
+
+void loop()
+{
+  if(Serial.available()>0){
+  	
+    String userinput = Serial.readString();
+    Serial.print("You entered:");
+    Serial.println(userinput); 
+  
+  }
+}
