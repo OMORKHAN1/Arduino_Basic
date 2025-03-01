@@ -1,0 +1,14 @@
+// C++ code
+int value; 
+int AnalogPin = A0;
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  value = analogRead(AnalogPin);
+  Serial.println(value);
+  delay(1000); // Wait for 1000 millisecond(s)
+}
