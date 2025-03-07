@@ -1,0 +1,22 @@
+// C++ code
+
+void setup()
+{
+  Serial.begin(9600);
+  
+}
+
+void loop()
+{
+  ledOn(12);
+  ledOn(11);
+  ledOn(10);
+}
+
+void ledOn(int led_no){
+pinMode(led_no,OUTPUT);
+  
+digitalWrite(led_no,HIGH);
+delay(5000);
+digitalWrite(led_no,LOW);
+delay(5000);
