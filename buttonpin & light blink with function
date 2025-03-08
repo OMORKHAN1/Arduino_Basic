@@ -1,0 +1,45 @@
+// C++ code
+void setup()
+{
+  	Serial.begin(9600);
+  	
+}
+
+void loop()
+{	
+  	
+  	bool status = button_op(8);
+  	bool status2 = button_op(7);
+  	
+  	Serial.print("Pin8:");
+  	Serial.println(status);
+  	Serial.print("Pin7:");
+  	Serial.println(status2);
+  	
+  if (button_op(8)==1){
+  	ledOn(5);
+  
+  }
+  
+  else{
+  	ledOff(5);
+  
+  }
+}
+
+bool button_op(int buttonPin){
+  
+	pinMode(buttonPin, INPUT);
+  	//delay(5000);
+  	return digitalRead(buttonPin);
+
+}
+
+void ledOn(int led_pin){
+  pinMode(led_pin, OUTPUT);
+  digitalWrite(led_pin, HIGH);
+}
+void ledOff(int led_pin){
+  pinMode(led_pin, OUTPUT);
+  digitalWrite(led_pin, LOW);
+}
