@@ -1,0 +1,27 @@
+int pin_no = 8; //2
+int led_pin = 7; //4
+int buzzer_pin = 13; //8
+int flame;
+int led;
+int buzzer;
+void setup() {
+ Serial.begin(9600);
+ pinMode(pin_no, INPUT);
+ pinMode(led_pin, OUTPUT);
+ pinMode(buzzer_pin, OUTPUT);
+
+}
+
+void loop() {
+  flame = digitalRead(pin_no);
+  Serial.println(flame);
+
+  if(flame == 0){
+   digitalWrite(led_pin, HIGH);   // when output no variable nedded
+   digitalWrite(buzzer_pin,HIGH); // when output no variable nedded
+   delay(500);
+  }
+
+  digitalWrite(led_pin, LOW);   // when output no variable nedded
+  digitalWrite(buzzer_pin,LOW); // when output no variable nedded
+}
