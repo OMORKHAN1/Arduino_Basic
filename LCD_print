@@ -1,0 +1,18 @@
+#include<LiquidCrystal_I2C.h> //
+
+LiquidCrystal_I2C lcd(0x27, 16, 2); //lcd is the variable/object where LiquidCrystal_I2C is the type/class(like int), 0x27 - hexadecimal address, 16 - coloum, 2 - rows which we have to define
+
+void setup() {
+  // put your setup code here, to run once:
+  lcd.init(); //  init is for initializing all the required for the display like serial.begin
+  lcd.backlight(); // will turn on the light of lcd 
+  lcd.setCursor(0,0); //(col, row) iniitializing from where printing will be started  
+  lcd.print("Hello");
+  lcd.setCursor(1,1);
+  lcd.print("OMOR");
+  // sda(A4), scl(A5) are two two main comunication lines used to transfer data between mc and lcd what is i2c,mqtt, http, uart protocol
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+}
