@@ -1,0 +1,53 @@
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x27, 16, 2); // I2C address 0x27, 16 columns, 2 rows
+const int flameSensorPin = 6;
+const int gasSensorPin = 7;
+const int buzzerPin = 8;
+
+void setup() {
+  Serial.begin(9600);
+  lcd.begin(16, 2); // Corrected: specify columns and rows
+  lcd.backlight();
+  lcd.print("Home Automation");
+  lcd.setCursor(0, 1);
+  lcd.print("System Start...");
+  delay(2000);
+
+  pinMode(flameSensorPin, INPUT);
+  pinMode(gasSensorPin, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+}
+
+void loop() {
+  int flameStatus = digitalRead(flameSensorPin);
+  int gasStatus = digitalRead(gasSensorPin);
+
+  lcd.setCursor(0, 0);
+  if (flameStatus == HIGH) {
+    lcd.print("Flame: SAFE     ");
+    Serial.println("Flame sensor: SAFE");
+  } else {
+    lcd.print("Flame: ALERT    ");
+    Serial.println("Flame sensor: ALERT!");
+    activateBuzzer();
+  }
+
+  lcd.setCursor(0, 1);
+  if (gasStatus == HIGH) {
+    lcd.print("Gas: SAFE       ");
+    Serial.println("Gas sensor: SAFE");
+  } else {
+    lcd.print("Gas: ALERT      ");
+    Serial.println("Gas sensor: ALERT!");
+    activateBuzzer();
+  }
+
+  delay(500);
+}
+
+void activateBuzzer() {
+  digitalWrite(buzzerPin, HIGH);
+  delay(300);
+  digitalWrite(buzzerPin, LOW);
+}
